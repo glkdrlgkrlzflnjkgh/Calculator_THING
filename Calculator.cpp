@@ -7,11 +7,7 @@
 #include "Config.h"
 
 // Set debug flag based on build configuration
-#ifdef DEBUG
-constexpr bool debug = true;
-#else
-constexpr bool debug = false;
-#endif
+
 
 // Basic arithmetic operations for Calculator
 
@@ -59,7 +55,11 @@ public:
         while (match('+') || match('-')) {
             char op = expr[pos - 1];
             double rhs = parseTerm();
+
             result = (op == '+') ? result + rhs : result - rhs;
+            if (debug) {
+                std::cout << "result: of +/- " << result << std::endl;
+            }
         }
         return result;
     }
@@ -81,7 +81,7 @@ private:
                 result *= rhs;
             } else {
                 if (rhs == 0) {
-                    throw std::invalid_argument("Division by zero");
+					throw Calc_DivideByZeroError();
                 }
                 result /= rhs;
             }
@@ -150,7 +150,7 @@ double Calculator::evaluate(const std::string& expression) {
     Parser parser(expression);
     double result = parser.parseExpression();
     if (!parser.end()) {
-        throw Calc_SyntaxError("Unexpected characters at end of expression");
+        throw Calc_SyntaxError("Expected EOL, but found trailing data!");
     }
     return result;
 }

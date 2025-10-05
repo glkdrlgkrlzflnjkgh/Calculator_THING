@@ -1,1 +1,12 @@
 .vs
+.x64
+*.user
+*.filters
+*.suo
+*.ipch
+*.obj
+*.iobj
+*.pch
+*.res
+*.exe
+*.tlog

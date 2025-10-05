@@ -14,3 +14,10 @@ public:
         : CalculatorException("Syntax error: " + message) {
     }
 };
+
+class Calc_DivideByZeroError : public CalculatorException {
+public:
+    Calc_DivideByZeroError()
+        : CalculatorException("Math error: Division by zero") {
+    }
+};
