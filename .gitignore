@@ -10,3 +10,6 @@
 *.res
 *.exe
 *.tlog
+*.obj
+*.tlog
+*.ilk
