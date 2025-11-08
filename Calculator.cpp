@@ -37,6 +37,7 @@ double Calculator::divide(double a, double b) {
 // Parser class for evaluating mathematical expressions
 class Parser {
 public:
+    int getPos() const;
     // Initialize parser with the expression string
     Parser(const std::string& expr)
         : expr(expr), pos(0) {}
@@ -106,7 +107,7 @@ private:
         if (match('(')) {
             double result = parseExpression();
             if (!match(')')) {
-                throw Calc_SyntaxError("Expected ')'");
+                throw Calc_SyntaxError("Expected ')'",pos);
             }
             return result;
         }
@@ -122,7 +123,7 @@ private:
             pos++;
         }
         if (start == pos) {
-            throw Calc_SyntaxError("Expected number");
+            throw Calc_SyntaxError("Expected number",pos);
         }
         return std::stod(expr.substr(start, pos - start));
     }
@@ -143,14 +144,17 @@ private:
             pos++;
         }
     }
-};
 
+};
+int Parser::getPos() const {
+    return static_cast<int>(pos);
+}
 // Evaluate a mathematical expression using the Parser
 double Calculator::evaluate(const std::string& expression) {
     Parser parser(expression);
     double result = parser.parseExpression();
     if (!parser.end()) {
-        throw Calc_SyntaxError("Expected EOL, but found trailing data!");
+        throw Calc_SyntaxError("Expected EOL, but found trailing data!",parser.getPos());
     }
     return result;
 }

@@ -8,10 +8,10 @@ public:
         : std::runtime_error(message) {}
 };
 
-class Calc_SyntaxError: public CalculatorException{
+class Calc_SyntaxError : public CalculatorException {
 public:
-    Calc_SyntaxError(const std::string& message)
-        : CalculatorException("Syntax error: " + message) {
+    Calc_SyntaxError(const std::string& message, const std::int32_t pos)
+        : CalculatorException("Syntax error: " + message + " at position " + std::to_string(pos)) {
     }
 };
 

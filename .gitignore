@@ -13,3 +13,10 @@
 *.obj
 *.tlog
 *.ilk
+*.exe
+*.exe
+*.obj
+*.tlog
+*.obj
+*.ilk
+*.log
