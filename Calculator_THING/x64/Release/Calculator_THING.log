@@ -1,4 +1,9 @@
 ﻿  Calculator.cpp
-C:\Users\xCall\source\repos\Calculator_THING\Calculator.cpp(110,55): warning C4267: 'argument': conversion from 'size_t' to 'const int32_t', possible loss of data
-C:\Users\xCall\source\repos\Calculator_THING\Calculator.cpp(130,54): warning C4267: 'argument': conversion from 'size_t' to 'const int32_t', possible loss of data
-LINK : fatal error LNK1104: cannot open file 'C:\Users\xCall\source\repos\Calculator_THING\x64\Release\Calculator_THING.exe'
+C:\Users\xCall\source\repos\Calculator_THING\Calculator.cpp(75,56): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\xCall\source\repos\Calculator_THING\Calculator.cpp(95,41): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data
+  Generating code
+  10 of 190 functions ( 5.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    41 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Calculator_THING.vcxproj -> C:\Users\xCall\source\repos\Calculator_THING\x64\Release\Calculator_THING.exe

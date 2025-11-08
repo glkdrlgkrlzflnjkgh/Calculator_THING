@@ -1,4 +1,4 @@
 ﻿  Calculator.cpp
-C:\Users\xCall\source\repos\Calculator_THING\Calculator.cpp(110,55): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data
-C:\Users\xCall\source\repos\Calculator_THING\Calculator.cpp(130,54): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\xCall\source\repos\Calculator_THING\Calculator.cpp(75,56): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\xCall\source\repos\Calculator_THING\Calculator.cpp(92,69): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data
   Calculator_THING.vcxproj -> C:\Users\xCall\source\repos\Calculator_THING\x64\Debug\Calculator_THING.exe
