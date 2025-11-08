@@ -2,8 +2,10 @@
 #include <string>
 #include <iomanip>
 #include "Calculator.h"
+#include "CalculatorErrors.h"
 #include "Config.h"
-
+#include <limits>
+static_assert(std::numeric_limits<int>::is_signed, "int must be signed"); // if teh int isnt signed we will get pissed
 static_assert(sizeof(int) >= 4, "Sizeof int is not equal to, or greater than 4!");
 static_assert(sizeof(double) >= 8, "Sizeof double is not equal to, or greater than 8!");
 
@@ -49,6 +51,10 @@ int main() {
             double result = calc.evaluate(input);
             std::cout << std::fixed << std::setprecision(8);
             std::cout << "Result: " << result << std::endl;
+        }
+        catch (const Calc_SyntaxError&) {
+            // Already printed in Calculator.cpp — no need to repeat
+            continue;
         }
         catch (const std::exception& e) {
             std::cerr << "Error: " << e.what() << std::endl;

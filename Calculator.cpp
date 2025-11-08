@@ -122,6 +122,10 @@ private:
         while (pos < expr.size() && (isdigit(expr[pos]) || expr[pos] == '.')) {
             pos++;
         }
+        if (expr.substr(pos, 3) == "inf") {
+            pos += 3;
+            return std::numeric_limits<double>::infinity();
+        }
         if (start == pos) {
             throw Calc_SyntaxError("Expected number",pos);
         }
@@ -151,10 +155,28 @@ int Parser::getPos() const {
 }
 // Evaluate a mathematical expression using the Parser
 double Calculator::evaluate(const std::string& expression) {
-    Parser parser(expression);
-    double result = parser.parseExpression();
-    if (!parser.end()) {
-        throw Calc_SyntaxError("Expected EOL, but found trailing data!",parser.getPos());
+    try {
+        Parser parser(expression);
+        double result = parser.parseExpression();
+        if (!parser.end()) {
+            throw Calc_SyntaxError("Expected EOL, but found trailing data!", parser.getPos());
+        }
+        return result;
     }
-    return result;
+    catch (const Calc_SyntaxError& e) {
+        // Print expression with error section in red
+        std::cerr << expression.substr(0, e.position()); // before error
+        if (e.position() < expression.size()) {
+            std::cerr << "\033[1;31m" << expression.substr(e.position()) << "\033[0m\n"; // red from error to end
+        }
+        
+
+        // Print caret under error position
+        std::cerr << std::string(e.position(), ' ') << "\033[1;31m^\033[0m\n";
+        std::cerr << "\033[1mThe ^ shows where we found the error — the mistake is probably there.\033[0m\n";
+
+        // Print error message
+        std::cerr << "SyntaxError: " << e.what() << "\n";
+        throw;
+    }
 }

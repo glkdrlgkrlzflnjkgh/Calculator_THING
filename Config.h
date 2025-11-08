@@ -15,9 +15,9 @@ typically in debug builds in visual studio  2022
 #define VERSION "1.0.6-Release" // Release version string
 #endif 
 #ifdef DEBUG
-constexpr bool debug = true;
+constexpr bool debug = true; // debug!
 #else
-constexpr bool debug = false;
+constexpr bool debug = false; // release... :(
 #endif
 constexpr const char* build_date = BUILD_DATE;
 constexpr const char* version = VERSION;
