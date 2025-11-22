@@ -90,7 +90,7 @@ private:
             return std::numeric_limits<double>::infinity();
         }
         if (start == pos) {
-            std::string got = (pos < expr.size()) ? expr.substr(pos, 5) : "<EOL>";
+            std::string got = (pos < expr.size()) ? expr.substr(pos, 120) : "<EOL>";
             std::string msg = "Expected number but got '" + got + "'";
             throw Calc_SyntaxError(msg, pos);
 
@@ -131,7 +131,7 @@ double Calculator::evaluate(const std::string& expression) {
             std::cerr << "\033[1;31m\033[0m\n";
         }
         std::cerr << std::string(e.position(), ' ') << "\033[1;31m^\033[0m\n";
-        std::cerr << "\033[1mThe ^ shows where we found the error, the mistake is probably there.\033[0m\n";
+        std::cerr << "\033[1mThe ^ shows where we found the error, but the mistake could be before or after it.\033[0m\n";
         std::cerr << "SyntaxError: " << e.what() << "\n";
         throw;
     }

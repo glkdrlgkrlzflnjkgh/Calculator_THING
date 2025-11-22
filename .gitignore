@@ -20,3 +20,12 @@
 *.obj
 *.ilk
 *.log
+*.exe
+*.exe
+*.obj
+*.ilk
+*.log
+*.idb
+*.pdb
+*.exe
+*.pdb
