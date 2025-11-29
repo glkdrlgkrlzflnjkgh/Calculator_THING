@@ -1,3 +1,5 @@
+// Copyright (c) 2050 Callum Nicoll, all rights reserved as stated in the legal notice at the start of the program.
+
 // Config.h
 #pragma once // Guard to idiot-proof this header file.
 

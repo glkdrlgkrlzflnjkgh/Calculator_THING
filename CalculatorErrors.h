@@ -1,3 +1,5 @@
+// Copyright (c) 2050 Callum Nicoll, all rights reserved as stated in the legal notice at the start of the program.
+
 #pragma once
 #include <stdexcept>
 #include <string>
