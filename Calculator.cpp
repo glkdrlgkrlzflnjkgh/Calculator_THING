@@ -1,4 +1,4 @@
-// Copyright (c) 2050 Callum Nicoll, all rights reserved as stated in the legal notice at the start of the program.
+// Copyright (c) 2025 Callum Nicoll, all rights reserved as stated in the legal notice at the start of the program.
 
 #include "Calculator.h"
 #include "CalculatorErrors.h"
