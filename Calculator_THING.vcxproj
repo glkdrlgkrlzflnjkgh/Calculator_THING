@@ -131,6 +131,9 @@
     <ClInclude Include="Calculator.h" />
     <ClInclude Include="CalculatorErrors.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="include\Calculator.h" />
+    <ClInclude Include="include\CalculatorErrors.h" />
+    <ClInclude Include="include\Config.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

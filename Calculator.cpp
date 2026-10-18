@@ -1,13 +1,13 @@
 // Copyright (c) 2025 Callum Nicoll, all rights reserved as stated in the legal notice at the start of the program.
 
-#include "Calculator.h"
-#include "CalculatorErrors.h"
+#include "include/Calculator.h"
+#include "include/CalculatorErrors.h"
 #include <stdexcept>
 #include <cctype>
 #include <iostream>
 #include <cmath>
 #include <limits>
-#include "Config.h"
+#include "include/Config.h"
 
 // Basic arithmetic operations
 double Calculator::add(double a, double b) { return a + b; }

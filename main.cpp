@@ -3,9 +3,9 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include "Calculator.h"
-#include "CalculatorErrors.h"
-#include "Config.h"
+#include "include/Calculator.h"
+#include "include/CalculatorErrors.h"
+#include "include/Config.h"
 #include <limits>
 static_assert(std::numeric_limits<int>::is_signed, "int must be signed"); // if teh int isnt signed we will get pissed
 static_assert(sizeof(int) >= 4, "Sizeof int is not equal to, or greater than 4!");
