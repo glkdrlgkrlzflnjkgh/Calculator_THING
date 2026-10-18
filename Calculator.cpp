@@ -17,7 +17,8 @@ double Calculator::divide(double a, double b) {
     if (b == 0) throw std::invalid_argument("Division by zero");
     return a / b;
 }
-
+static int recursionDepth = 0;
+static const int MAX_RECURSION_DEPTH = 4;
 // Parser class
 class Parser {
 public:
@@ -32,7 +33,6 @@ public:
             char op = expr[pos - 1];
             double rhs = parseTerm();
             result = (op == '+') ? result + rhs : result - rhs;
-            if (debug) std::cout << "result: of +/- " << result << std::endl;
         }
         return result;
     }
@@ -57,11 +57,17 @@ private:
     }
 
     double parsePower() {
+        if (++recursionDepth > MAX_RECURSION_DEPTH) {
+            throw Calc_SyntaxError("Exponent chain too deep ", pos);
+        }
+
         double result = parseFactor();
         while (match('^')) {
-            double exponent = parsePower(); // right-associative
+            double exponent = parsePower();
             result = std::pow(result, exponent);
         }
+
+        --recursionDepth;
         return result;
     }
 
@@ -118,6 +124,8 @@ private:
 
 // Calculator evaluation
 double Calculator::evaluate(const std::string& expression) {
+    recursionDepth = 0;
+
     try {
         Parser parser(expression);
         double result = parser.parseExpression();

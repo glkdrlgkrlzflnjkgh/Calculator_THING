@@ -30,3 +30,4 @@
 *.exe
 *.pdb
 Calculator_THING/x64/Debug/**
+Calculator_THING/x64/Release/**
