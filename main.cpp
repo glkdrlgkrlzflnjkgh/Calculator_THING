@@ -30,18 +30,22 @@ int main() {
         std::cout << "> ";
         std::getline(std::cin, input);
         if (input.empty()) {
-            std::cout << "no input" << std::endl;
             continue;
 		}
         if (input == "exit" || input == "q") {
             std::cout << "Quitting..." << std::endl;
             break;
         }
+        if (input == "cls" || input == "clear") {
+            std::cout << "\x1B[2J\x1B[H"; // ANSI clear screen
+            continue;
+        }
+
         if (input == "legal") {
             std::cout << "WARNING: this app is NOT ready to be used in scenarios such as: \n dosage calculations for medical devices, aerospace simulations, and safety-critical systems! \n YOU HAVE BEEN WARNED!" << std::endl;
             std::cout << "Decompilation or reverse engineering is prohibited,\n except for strictly private educational purposes where no code, \n logic, or derivative work is redistributed, published, or used commercially." << std::endl;
             std::cout << "THIS SOFTWARE IS PROVIDED AS-IS, WITHOUT WARRANTY OF ANY KIND. USE AT YOUR OWN RISK." << std::endl;
-            std::cout << "Copyright Callum Nicoll 2025, all rights reserved." << std::endl;
+            std::cout << "Copyright Callum Nicoll 2025-2026, all rights reserved." << std::endl;
             continue;
         }
         if (input == "source-code") {

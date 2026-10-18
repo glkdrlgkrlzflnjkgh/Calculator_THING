@@ -67,7 +67,9 @@ private:
 
     double parseFactor() {
         skipWhitespace();
-
+        if (match('-')) {
+            return -parseFactor();
+        }
         if (match('(')) {
             size_t checkpoint = pos;
             double result = parseExpression();
@@ -120,7 +122,7 @@ double Calculator::evaluate(const std::string& expression) {
         Parser parser(expression);
         double result = parser.parseExpression();
         if (!parser.end()) {
-            throw Calc_SyntaxError("Expected EOL, but found trailing data!", parser.getPos());
+            throw Calc_SyntaxError("Expected EOL, but found trailing data! ", parser.getPos());
         }
         return result;
     }
@@ -133,8 +135,7 @@ double Calculator::evaluate(const std::string& expression) {
             std::cerr << "\033[1;31m\033[0m\n";
         }
         std::cerr << std::string(e.position(), ' ') << "\033[1;31m^\033[0m\n";
-        std::cerr << "\033[1mThe ^ shows where we found the error, but the mistake could be before or after it.\033[0m\n";
-        std::cerr << "SyntaxError: " << e.what() << "\n";
+        std::cerr << e.what() << "\n";
         throw;
     }
 }

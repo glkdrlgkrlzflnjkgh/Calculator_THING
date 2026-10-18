@@ -13,7 +13,7 @@ public:
 class Calc_SyntaxError : public CalculatorException {
 public:
     Calc_SyntaxError(const std::string& message, std::int32_t pos)
-        : CalculatorException("Syntax error: " + message + " at position " + std::to_string(pos)),
+        : CalculatorException("Syntax error! " + message),
         pos(pos) // store it here
     {
     }
@@ -27,6 +27,6 @@ private:
 class Calc_DivideByZeroError : public CalculatorException {
 public:
     Calc_DivideByZeroError()
-        : CalculatorException("Math error: Division by zero") {
+        : CalculatorException("Math error! Division by zero") {
     }
 };
