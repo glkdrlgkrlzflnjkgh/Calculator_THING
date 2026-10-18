@@ -125,12 +125,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Calculator.cpp" />
+    <ClCompile Include="FatalError.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Calculator.h" />
-    <ClInclude Include="CalculatorErrors.h" />
-    <ClInclude Include="Config.h" />
+    <ClInclude Include="FatalError.h" />
     <ClInclude Include="include\Calculator.h" />
     <ClInclude Include="include\CalculatorErrors.h" />
     <ClInclude Include="include\Config.h" />
